@@ -3966,10 +3966,10 @@
                 "address": "臺北市  文山區指南路三段33巷",
                 "xpostDate": "2014/03/04",
                 "file": {
-                    "img": {
+                    "img": [{
                         "@description": "指南宮貓空步道",
                         "text": "http://www.travel.taipei/d_upload_ttn/sceneadmin/pic/11002820.jpg"
-                    },
+                    }],
                     "video": [
                         {
                             "@description": "貓空觀光",
