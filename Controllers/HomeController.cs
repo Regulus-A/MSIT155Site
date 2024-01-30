@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MSIT155Site.Models;
 using System.Diagnostics;
+using System.Text;
 
 namespace MSIT155Site.Controllers
 {
@@ -29,9 +30,19 @@ namespace MSIT155Site.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+        public IActionResult First()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Register()
+        {
+            return View();
         }
     }
 }
