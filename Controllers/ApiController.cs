@@ -29,17 +29,28 @@ namespace MSIT155Site.Controllers
         }
         public IActionResult Cities()
         {
-            var cities = _context.Addresses.Select(a=>a.City).Distinct();
+            var cities = _context.Addresses.Select(c => c.City).Distinct();
             return Json(cities);
         }
-        [HttpPost]
+
+        public IActionResult Districts(string city)
+        {
+            var districts = _context.Addresses.Where(d => d.City == city).Select(d => d.SiteId).Distinct();
+            return Json(districts);
+        }
+        public IActionResult Roads(string district)
+        {
+            var roads = _context.Addresses.Where(r => r.SiteId == district).Select(d => d.Road).Distinct();
+            return Json(roads);
+        }
+
         public IActionResult Avatar(int id = 1)
         {
             Member? member = _context.Members.Find(id);
-            if(member != null)
+            if (member != null)
             {
                 byte[] img = member.FileData;
-                if(img != null)
+                if (img != null)
                 {
                     return File(img, "image/jpeg");
                 }
@@ -59,7 +70,7 @@ namespace MSIT155Site.Controllers
         public IActionResult CheckAccount(UserDTO _user)
         {
             var MemberName = _context.Members.FirstOrDefault(m => m.Name == _user.Name);
-            if(MemberName != null)
+            if (MemberName != null)
             {
                 return Content("帳號已存在", "text/plain", Encoding.UTF8);
             }

@@ -23,15 +23,29 @@ namespace MSIT155Site.Controllers
         {
             return View();
         }
+       
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
-        public IActionResult Privacy()
+        public IActionResult First()
+        {
+            return View();
+        }
+        
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult Address()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Avatar()
+        {
+            return View();
+        }
 
-        public IActionResult First()
+        public IActionResult Privacy()
         {
             return View();
         }
@@ -40,9 +54,6 @@ namespace MSIT155Site.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        public IActionResult Register()
-        {
-            return View();
-        }
+
     }
 }
